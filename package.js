@@ -30,12 +30,10 @@ Package.on_use(function (api) {
   api.versionsFrom('METEOR@0.9.0.1');
 
   api.use('angular:angular@1.3.15_1', 'client');
+  api.use('netanelgilad:angular-server@1.3.15', 'server');
   api.use('minimongo');  // for idStringify
   api.use('observe-sequence');
   api.use('dburles:mongo-collection-instances@0.3.3', 'client'); // For getCollectionByName
-
-  api.addFiles('lib/angular-server-polyfill.js', 'server');
-  api.addFiles('lib/angular.js');
 
   // Files to load in Client only.
   api.add_files([

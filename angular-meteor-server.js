@@ -41,7 +41,9 @@ angular.module('angular-meteor', [])
 
 var origBootstrap = angular.bootstrap;
 angular.bootstrap = function(modules, config) {
-  return origBootstrap(document, modules, config);
+  Meteor.startup(function() {
+    origBootstrap(document, modules, config);
+  });
 };
 
 
