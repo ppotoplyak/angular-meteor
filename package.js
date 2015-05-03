@@ -30,7 +30,7 @@ Package.on_use(function (api) {
   api.versionsFrom('METEOR@0.9.0.1');
 
   api.use('angular:angular@1.3.15_1', 'client');
-  api.use('netanelgilad:angular-server@1.3.15', 'server');
+  api.use('netanelgilad:angular-server@1.3.15_1', 'server');
   api.use('minimongo');  // for idStringify
   api.use('observe-sequence');
   api.use('dburles:mongo-collection-instances@0.3.3', 'client'); // For getCollectionByName
@@ -56,9 +56,12 @@ Package.on_use(function (api) {
     'angular-meteor-client.js'
   ], 'client');
 
-  api.add_files('angular-meteor-server.js', 'server');
+  api.add_files(['angular-meteor-server.js',
+                 'modules/server-http.js'], 'server');
 
   api.add_files('angular-meteor-common.js');
+
+  api.export('angular', 'server');
 });
 
 Package.onTest(function(api) {

@@ -88,7 +88,7 @@ Meteor.subscribe('serverInstances', function () {
                 args,
                 function (err, data) {
                   if (err)
-                    deferred.reject(err);
+                    deferred.reject(err.details);
                   else
                     deferred.resolve(data);
                 }
@@ -119,7 +119,7 @@ Meteor.subscribe('serverInstances', function () {
                 args,
                 function (err, data) {
                   if (err)
-                    deferred.reject(err);
+                    deferred.reject(err.details);
                   else
                     deferred.resolve(data);
                 }
